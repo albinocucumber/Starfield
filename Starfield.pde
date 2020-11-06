@@ -55,6 +55,7 @@ class OddballParticle extends Particle{
 
 Particle [] quantum = new Particle[5000];
 void setup(){
+  frameRate(120);
   size(800, 800);
   background(0);
   for(int i = 0; i < quantum.length; i++){
