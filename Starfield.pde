@@ -34,14 +34,22 @@ class Particle{
 
 class OddballParticle extends Particle{
   void OddBallParticle(){
-    mySize = (int)(Math.random() * 8 + 4);
-    myColor = color(150);
   }
   void move(){
-    
+    if((myX > 800 || myX < 0) || (myY > 800 || myY < 0)){
+      myX = (float)((Math.random() * 50) + 375);
+      myY = (float)((Math.random() * 50) + 375);
+    }
+    speed = distance/50;
+    myX += speed * Math.cos(myAngle);
+    myY += speed * Math.sin(myAngle);
   }
   void show(){
-    
+    mySize = (int)(Math.random() * 25 + 25);
+    myColor = color((int)(Math.random()* 100 + 50),(int)(Math.random()* 100 + 50), (int)(Math.random()* 100 + 50));;
+    stroke(myColor);
+    fill(myColor);
+    ellipse(myX, myY, mySize, mySize);
   }
 }
 
@@ -70,5 +78,7 @@ void keyPressed(){
   if(keyPressed && key == 'r'){
     loop();
   }
-  
+  if(keyPressed && key == 'c'){
+    setup();
+  } 
 }
